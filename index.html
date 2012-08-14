@@ -1,107 +1,179 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!doctype html>
 <html>
   <head>
-    <title>frab - conference management system</title>
-    <link href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700' rel='stylesheet' type='text/css' />
-    <link href='http://fonts.googleapis.com/css?family=Gentium+Basic:400,400italic,700,700italic' rel='stylesheet' type='text/css' />
-    <link href='style.css' rel='stylesheet' type='text/css' />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Frab by katastrophie</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <div id='github'>
-      <a href='https://github.com/oneiros/frab' title='Fork me on GitHub'>
-        <img alt='Fork me on GitHub' src='github.png' />
-      </a>
+    <div class="wrapper">
+      <header>
+        <h1>Frab</h1>
+        <p>conference manangement system</p>
+
+        <p class="view"><a href="https://github.com/katastrophie/frab">View the Project on GitHub <small>katastrophie/frab</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/katastrophie/frab/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/katastrophie/frab/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/katastrophie/frab">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>frab - conference management system</h1>
+
+<p>frab is a web-based conference planning and management system. 
+It helps to collect submissions, to manage talks and speakers 
+and to create a schedule.</p>
+
+<h2>Background</h2>
+
+<p>This fork was used for the CCC conference SIGINT12 and is still in active
+development for future conferences.</p>
+
+<p>frab was originally created for the organization of FrOSCon 2011 (<a href="http://www.froscon.de">http://www.froscon.de</a>).
+FrOSCon has previously used pentabarf (<a href="http://pentabarf.org">http://pentabarf.org</a>), and although
+frab is a completely new implementation, it borrows heavily from pentabarf.</p>
+
+<p>Both FrOSCon and frab owe a lot to pentabarf. But sadly, pentabarf seems to
+be abandoned. And several problems make it hard to maintain. Thus we decided
+to create a new system.</p>
+
+<h2>Current status</h2>
+
+<p>frab is under heavy development. There is no stable release yet.
+You may want to try to use frab regardless, but be warned, that it may
+be a rocky ride.</p>
+
+<p>That being said, frab has been used to organize FrOSCon 2011, a
+conference with more than 100 talks (and as many speakers) in more
+than 5 parallel tracks (plus devrooms) over 2 days.</p>
+
+<h2>Installing</h2>
+
+<p>frab is a pretty standard Ruby on Rails (version 3.2) application. 
+There should be plenty of tutorials online on how to install,
+deploy and setup these.</p>
+
+<p>Basically, to get started you need git, ruby (&gt;= 1.9.3) and bundler 
+and follow these steps:</p>
+
+<p>1) Clone the repository</p>
+
+<pre><code>git clone git://github.com/katastrophie/frab.git
+</code></pre>
+
+<p>2) cd into the directory:</p>
+
+<pre><code>cd frab
+</code></pre>
+
+<p>3) Install all necessary gems:</p>
+
+<pre><code>bundle install
+</code></pre>
+
+<p>4) Install Imagemagick:</p>
+
+<p>This is a dependency of the paperclip gem. Imagemagick
+tools need to be installed to identify and resize images.</p>
+
+<p>Imagemagick should be easy to install using your OS's
+preferred package manager (apt-get, yum, brew etc.).</p>
+
+<p>5) Create (and possibly modify) the database configuration:</p>
+
+<pre><code>cp config/database.yml.template config/database.yml
+</code></pre>
+
+<p>frab bundles all three built-in rails database drivers. 
+And it should work with all three, although it is best tested 
+with MySQL and SQLite3 (for development). </p>
+
+<p>6) Create and modify settings:</p>
+
+<pre><code>cp config/settings.yml.template config/settings.yml
+</code></pre>
+
+<p>7) Create and setup the database</p>
+
+<pre><code>rake db:setup
+</code></pre>
+
+<p>8) Precompile assets (only needed for production)</p>
+
+<pre><code>rake assets:precompile
+</code></pre>
+
+<p>9) Start the server</p>
+
+<p>To start frab in the development environment simply run</p>
+
+<pre><code>rails server
+</code></pre>
+
+<p>To start frab in the production environment make sure you
+did not skip step 8 and run:</p>
+
+<pre><code>rails server -e production
+</code></pre>
+
+<p>(Note that for a "real" production environment you
+probably do not want to use this script, but rather something
+like unicorn or passenger.)</p>
+
+<p>Navigate to http://localhost:3000/ and login as 
+"<a href="mailto:admin@example.org">admin@example.org</a>" with password "test123".</p>
+
+<h2>Migrating from pentabarf</h2>
+
+<p>frab comes with a script that offers limited capabilities of
+migrating data from pentabarf. For it to work, you need access
+to pentabarf's database and configure it in config/database.yml
+under the key "pentabarf".</p>
+
+<p>Then simply run</p>
+
+<pre><code>rake pentabarf:import:all
+</code></pre>
+
+<p>Please note, that the script has not been tested with HEAD
+and will most probably not work. If you still want to try it
+out, checkout the code at the revision the script was last
+changed at and upgrade the code and migrate the database
+from there.</p>
+
+<h2>Ticket Server</h2>
+
+<p>This fork supports OTRS and RT ticket servers. Instead of sending 
+event acceptance/rejection mails directly to submitters, frab adds
+a ticket to a request tracker.</p>
+
+<p>The ticket server type can be configured in </p>
+
+<pre><code>config/initializers/ticket_server_type.rb
+</code></pre>
+
+<h2>License</h2>
+
+<p>frab is licensed under an MIT-License. It bundles some
+third-party libraries and assets that might be licensed
+differently. See LICENSE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/katastrophie">katastrophie</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
     </div>
-    <div class='container'>
-      <h1>frab</h1>
-      <h2>free and open conference management system</h2>
-      <h3>About</h3>
-      <p>
-        frab is a web-based conference planning and management system.
-        It helps to collect submissions, to manage talks and speakers
-        and to create a schedule.
-      </p>
-      <p>
-        frab is based upon
-        <a href='http://www.rubyonrails.org'>Ruby on Rails</a>
-        . It was created to organize
-        <a href='http://www.froscon.org'>FrOSCon</a>
-        , where it replaced
-        <a href='http://pentabarf.org'>pentabarf</a>
-        as the primary conference planning tool.
-      </p>
-      <h3>Features</h3>
-      <p>
-        Here is an incomplete list of features, to get you an idea of what
-        frab is capable of:
-      </p>
-      <ul>
-        <li>Manage multiple conferences</li>
-        <li>
-          Manage all the people involved in your conference
-          <ul>
-            <li>This includes (but is not limited to) speakers, moderators, staff etc.</li>
-            <li>You can reuse a person's details across all conferences</li>
-          </ul>
-        </li>
-        <li>
-          Manage the individual events your conference is composed of (talks, workshops etc.)
-          <ul>
-            <li>Track an event's state from inception to final confirmation</li>
-            <li>Assign people to an event (speakers, moderators, etc.)</li>
-            <li>Print paper cards with your events for "offline" planning</li>
-          </ul>
-        </li>
-        <li>
-          Conduct a Call for Papers
-          <ul>
-            <li>Collect submissions from prospective speakers</li>
-            <li>Let speakers enter their data themselves into a central database</li>
-            <li>Review and rate submissions</li>
-            <li>Select submissions and let speakers reconfirm their attendance with a single click</li>
-          </ul>
-        </li>
-        <li>
-          Schedule events
-          <ul>
-            <li>Drag&amp;drop events onto your schedule</li>
-            <li>frab automatically checks for conflicts and gives you instant feedback</li>
-            <li>Export your schedule to different formats (HTML, PDF, iCalendar, xCal, pentabarf XML)</li>
-            <li>Use the online schedule or make a static export</li>
-            <li>Create custom PDF exports</li>
-          </ul>
-        </li>
-      </ul>
-      <h3>Download and Installation</h3>
-      <p>
-        frab is hosted at
-        <a href='https://github.com/oneiros/frab'>github</a>
-        .
-      </p>
-      <p>
-        There is no official release yet. Just clone the repository and get the latest code.
-      </p>
-      <p>
-        Please refer to the README for installation instructions.
-      </p>
-      <!-- %h3 frab and pentabarf -->
-      <!-- %p -->
-      <h3>Hosted frab with frabulous</h3>
-      <p>
-        I am currenty experimenting with a hosted version of frab,
-        <a href='http://www.frabulous.net' title='frabulous conference planning and management software'>frabulous</a>
-        . frabulous is currently in private beta. I am still looking for testers, so if you are interested, please sign up.
-      </p>
-      <p>
-        Feature-wise, frab and frabulous are nearly identical. New features will always be developed in frab first.
-        frab is and will always be free open source software.
-      </p>
-      <h3>Contact</h3>
-      <p>
-        If you have trouble using frab, consider
-        <a href='https://github.com/oneiros/frab/issues/new'>filing an issue</a>
-        . If you have any questions, feel free to email frab (at) roetzel.de. I would love to hear from you.
-      </p>
-    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
   </body>
 </html>
