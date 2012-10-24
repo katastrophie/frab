@@ -21,7 +21,6 @@ class Conference < ActiveRecord::Base
     :timeslot_duration
   validates_uniqueness_of :acronym
   validates_format_of :acronym, :with => /[a-z][a-z0-9_]*/
-  validate :last_day_after_first_day
 
   after_update :update_timeslots
 
@@ -123,11 +122,6 @@ class Conference < ActiveRecord::Base
       end
       Event.paper_trail_on
     end
-  end
-
-  def last_day_after_first_day
-    return unless self.last_day && self.first_day # 'validates_presence_of' throws errors already
-    self.errors.add(:last_day, "should be after the first day") if self.last_day.start_date < self.first_day.end_date
   end
 
 end
