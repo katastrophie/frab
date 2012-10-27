@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121027095651) do
+ActiveRecord::Schema.define(:version => 20121027193719) do
 
   create_table "availabilities", :force => true do |t|
     t.integer  "person_id"
@@ -60,6 +60,11 @@ ActiveRecord::Schema.define(:version => 20121027095651) do
     t.string   "severity"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "day_separators", :force => true do |t|
+    t.integer  "day_id", :null => false
+    t.datetime "time",   :null => false
   end
 
   create_table "days", :force => true do |t|

@@ -5,6 +5,7 @@ de:
   remove_file: "Datei entfernen"
   remove_language: "Sprache entfernen"
   remove_day: "Tag entfernen"
+  remove_separator: "Unterteilung entfernen"
   remove_track: "Track entfernen"
   remove_room: "Raum entfernen"
   edit: "Bearbeiten"
@@ -23,6 +24,7 @@ de:
   create_new_conference: "Neue Konferenz erstellen"
 
   days: "Tage"
+  day_separators: "Unterteilungen"
   tracks: "Tracks"
   rooms: "Räume"
   ticket_server: "Ticket-Server"
@@ -250,6 +252,7 @@ de:
       event: "Einreichung"
       person: "Profil"
       day: "Tag"
+      day_separator: "Unterteilung"
       link: "Link"
       im_account: "IM Account"
       phone_number: "Telefonnummer"
@@ -273,6 +276,8 @@ de:
       day:
         start_date: "Anfang"
         end_date: "Ende"
+      day_separator:
+        time: "Zeit"
       track:
         name: "Name"
         color: "Farbe"
