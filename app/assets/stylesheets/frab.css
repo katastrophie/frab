@@ -3,6 +3,14 @@ body {
   background-color: #eeeeee;
 }
 
+.topbar .fill {
+  padding: 0 1em;
+}
+
+.topbar .container {
+  width: 100%;
+}
+
 .main-content {
   background-color: #fff;
   border-radius: 0 0 6px 6px;
@@ -107,7 +115,7 @@ table.room tr.even {background: #EEEEEE;}
 
 span.right { float: right; }
 
-td.buttons { width: 160px; }
+td.buttons { white-space: nowrap; }
 
 a.assoc {
   margin-left: 150px;
@@ -120,4 +128,16 @@ ul#unscheduled-events {
 } 
 div#add-event-modal {
   overflow: auto; 
+}
+
+.nested-fields fieldset legend {
+  font-size: 130%;
+}
+
+.day_separators fieldset div {
+  margin-bottom: 0.5em;
+}
+
+.day_separators fieldset hr {
+  margin: 10px 0;
 }

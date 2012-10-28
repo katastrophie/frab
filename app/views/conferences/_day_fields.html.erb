@@ -2,7 +2,8 @@
   <%= f.inputs do %>
     <%= f.input :start_date, :hint => "yyyy-mm-dd hh:mm", :as => :datetime %>
     <%= f.input :end_date, :hint => "yyyy-mm-dd hh:mm", :as => :datetime %>
-    <%= remove_association_link "remove day", f %>
+    <%= dynamic_association :day_separators, t(:day_separators), f %>
+    <%= remove_association_link :day, f %>
   <% end %>
 </div>
 

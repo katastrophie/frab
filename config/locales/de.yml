@@ -1,13 +1,41 @@
 de:
   add_association: "%{name} hinzufügen"
+  remove_association: "%{name} entfernen"
   your_submission: "Dein Vortrag"
-  remove_link: "Link entfernen"
-  remove_file: "Datei entfernen"
-  remove_language: "Sprache entfernen"
-  edit: "bearbeiten"
+  edit: "Bearbeiten"
   actions: "Aktionen"
   error_signing_in: "E-Mailadresse oder Passwort ungültig."
   sign_in_successful: "Erfolgreich eingeloggt."
+
+  people: "Personen"
+  events: "Veranstaltungen"
+  reports: "Berichte"
+  call_for_papers: "Call for Papers"
+  launch_call_for_papers: "Call for Papers starten"
+  schedule: "Zeitplan"
+  settings: "Einstellungen"
+  switch_conference: "Konferenz wechseln"
+  create_new_conference: "Neue Konferenz erstellen"
+
+  days: "Tage"
+  day_separators: "Unterteilungen"
+  tracks: "Tracks"
+  rooms: "Räume"
+  ticket_server: "Ticket-Server"
+
+  create_your_first_conference: "Erste Konferenz erstellen"
+  new_conference: "Neue Konferenz"
+  edit_conference: "Konferenz bearbeiten"
+  edit_conference_days: "Konferenz-Tage bearbeiten"
+  edit_conference_tracks: "Konferenz-Tracks bearbeiten"
+  edit_conference_rooms: "Konferenz-Räume bearbeiten"
+  edit_ticket_server: "Ticket-Server bearbeiten"
+
+  basic_information: "Grundlegende Informationen"
+  schedule_configuration: "Konfiguration des Zeitplans"
+  event_languages: "Veranstaltungssprachen"
+  static_program_export: "Statischer Programm-Export"
+  feedback_system: "Feedback-System"
 
   options:
     lecture: "Vortrag"
@@ -214,15 +242,45 @@ de:
       full_messages:
         format: "%{attribute}%{message}"
     models:
+      conference: "Konferenz"
       event: "Einreichung"
       person: "Profil"
+      event_person: "Person"
       day: "Tag"
+      day_separator: "Unterteilung"
       link: "Link"
-      im_account: "IM Account"
+      im_account: "IM-Account"
       phone_number: "Telefonnummer"
       event_attachment: "Datei"
       language: "Sprache"
+      track: "Track"
+      room: "Raum"
     attributes:
+      conference:
+        title: "Titel"
+        acronym: "Kürzel"
+        email: "E-Mail"
+        color: "Farbe"
+        timezone: "Zeitzone"
+        timeslot_duration: "Dauer der Zeitslots"
+        default_timeslots: "Standard-Anzahl Zeitslots"
+        max_timeslots: "Maximale Anzahl Zeitslots"
+        schedule_version: "Version des Zeitplans"
+        schedule_public: "Zeitplan öffentlich"
+        feedback_enabled: "Feedback aktiviert"
+      day:
+        start_date: "Anfang"
+        end_date: "Ende"
+      day_separator:
+        time: "Zeit"
+      track:
+        name: "Name"
+        color: "Farbe"
+      room:
+        name: "Name"
+        size: "Größe"
+        rank: "Rang"
+        public: "Öffentlich"
       event:
         title: "Titel"
         subtitle: "Untertitel"
@@ -264,6 +322,9 @@ de:
         password_confirmation: "Passwort wiederholen"
         current_password: "Aktuelles Passwort"
         remember_me: "An diesem Computer eingeloggt bleiben"
+      event_feedback:
+        rating: "Bewertung"
+        comment: "Kommentar"
   mailers:
     user_mailer:
       confirmation_instructions: "Account aktivieren"
