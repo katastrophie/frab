@@ -8,6 +8,7 @@
   #conference-rooms
     - day_parts.each do |part|
       - rooms = used_rooms part
+      - next if rooms.empty?
       %table.rooms-table
         %thead
           %tr
