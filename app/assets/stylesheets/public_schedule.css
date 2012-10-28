@@ -103,15 +103,11 @@ td#top-left {
   height: 25px;
 }
 
-#conference-rooms {
-  left: 45px;
-  top: 0px;
-}
-
 table.rooms-table {
   border-spacing: 0;
   background: #e4e4e4;
   position: relative;
+  margin-bottom: 15px;
 }
 
 table.rooms-table th {
@@ -144,10 +140,9 @@ table.rooms-table td.cell-time, table.rooms-table th.cell-time {
 }
 
 .event {
-  width: 98%;
   height: 100%;
   border:1px solid;
-  margin: 0 auto;
+  margin: 0 1px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
