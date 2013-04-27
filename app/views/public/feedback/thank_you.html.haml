@@ -1,7 +1,0 @@
-%h2.title= t '.thank_you'
-
-.column
-  %p= t '.thank_you_for_helping_us'
-
-  %p
-    = link_to t('.return'), public_schedule_path(:day => @conference.day_at(@event.start_time))
